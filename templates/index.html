@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>B2B Lead Extractor - Jose Luis Asenjo</title>
+    <style>
+        body { font-family: 'Segoe UI', sans-serif; background: #f4f4f9; padding: 20px; }
+        .container { max-width: 1000px; margin: auto; background: white; padding: 20px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+        .header-box { background: #28a745; color: white; padding: 15px; border-radius: 8px; text-align: center; margin-bottom: 20px; font-weight: bold; }
+        .btn-download { background: #1e7e34; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; float: right; font-size: 14px; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; font-size: 13px; }
+        th, td { text-align: left; padding: 12px; border-bottom: 1px solid #eee; }
+        .tech-badge { background: #e9ecef; padding: 3px 6px; border-radius: 4px; font-size: 11px; color: #495057; }
+        .rating { color: #f39c12; font-weight: bold; }
+        .footer { text-align: center; margin-top: 30px; font-size: 12px; color: #888; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header-box">
+            📍 Leads Encontrados (Top 10)
+            <a href="/descargar" class="btn-download">Descargar Excel (CSV)</a>
+        </div>
+
+        <form method="POST" style="margin-bottom: 20px;">
+            <input type="text" name="query" placeholder="Ej: Fontanería en Donostia" required style="width: 70%; padding: 10px; border-radius: 5px; border: 1px solid #ddd;">
+            <button type="submit" style="padding: 10px 20px; background: #007bff; color: white; border: none; border-radius: 5px; cursor: pointer;">Buscar</button>
+        </form>
+
+        {% if resultados %}
+        <table>
+            <thead>
+                <tr>
+                    <th>Empresa / Web</th>
+                    <th>Contacto</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for r in resultados %}
+                <tr>
+                    <td>
+                        <strong>{{ r.empresa }}</strong><br>
+                        <span class="rating">{{ r.rating }} ⭐</span> ({{ r.reviews }})<br>
+                        <span class="tech-badge">{{ r.tech }}</span>
+                    </td>
+                    <td>
+                        📞 {{ r.tel }}<br>
+                        📧 {{ r.email }}
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% endif %}
+
+        <div class="footer">Desarrollado por Jose Luis Asenjo</div>
+    </div>
+</body>
+</html>
