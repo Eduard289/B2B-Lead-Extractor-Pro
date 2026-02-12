@@ -17,4 +17,7 @@ Herramienta profesional de prospección automatizada optimizada para entornos de
 4. Ejecuta: `python app.py`
 
 ---
+En caso de dudas o para adaptar este proyecto, u otros, a tus necesidades, puedes contactar conmigo: asenjo.jose@hotmail.com
+
 Desarrollado por **Jose Luis Asenjo**
+
