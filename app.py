@@ -66,7 +66,7 @@ if not st.session_state['usuario_nombre']:
     if st.button("Acceder a la herramienta"):
         if not nombre_input.strip():
             # Asignación de alias aleatorio si se pulsa enter o está vacío [cite: 2026-02-12]
-            nombres_azar = ["Analista", "Lead_Hunter", "Estratega_B2B", "Explorador", "Growth_User"]
+            nombres_azar = ["Analista", "Lead_Hunter", "Estratega_B2B", "User_427", "Explorador", "User_724" "Growth_User"]
             st.session_state['usuario_nombre'] = f"{random.choice(nombres_azar)}_{random.randint(10, 99)}"
         else:
             st.session_state['usuario_nombre'] = nombre_input
@@ -101,7 +101,7 @@ with st.expander("ℹ️ Capacidades de la herramienta y potencial B2B", expande
     """)
 
 # Aviso de Disponibilidad y Contacto
-st.info(f"💡 Debido al alto tráfico, si la consulta no devuelve resultados, el servicio podría estar fuera de rango momentáneamente por exceso de peticiones. Estará operativo de nuevo en unos minutos. Para cualquier consulta o proyecto personal, puedes ponerte en contacto con el desarrollador por mail: **asenjo.jose@hotmail.com**")
+st.info(f"💡 Debido al alto tráfico, si la consulta no devuelve resultados, el servicio podría estar fuera de rango momentáneamente por exceso de peticiones. Estará operativo de nuevo en unos minutos. Para cualquier consulta o proyecto personal, puedes ponerte en contacto con el desarrollador por mail")
 
 # --- ÁREA DE BÚSQUEDA ---
 col_bus1, col_bus2 = st.columns([3, 1])
@@ -126,7 +126,7 @@ if st.button("Ejecutar Análisis Pro"):
                     data = json_data.get('data', [])
                     
                     if not data:
-                        st.warning(f"⚠️ {st.session_state['usuario_nombre']}, el servicio está fuera de rango momentáneamente por exceso de peticiones. Reintenta en unos minutos. Soporte: asenjo.jose@hotmail.com")
+                        st.warning(f"⚠️ {st.session_state['usuario_nombre']}, en estos momentos el servicio está fuera de rango momentáneamente por exceso de peticiones. Reintenta en unos minutos. Soporte: asenjo.jose@hotmail.com")
                     else:
                         lista_final = []
                         progreso = st.progress(0)
